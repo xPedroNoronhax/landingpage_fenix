@@ -583,6 +583,42 @@ html, body {
     color: #ffffff;
     line-height: 1.6;
   }
+
+  .origem-section, .urgencia-section, .selo-garantia-section, .print-section {
+  background-color: #1C1C1C;
+  color: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.origem-title, .urgencia-title, .print-section h2, .selo-garantia-section h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #FF5722;
+  margin-bottom: 20px;
+}
+
+.origem-text, .urgencia-text, .selo-garantia-section p, .print-section p, .mini-anchora {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.mini-anchora {
+  color: #FFAB91;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .origem-title, .urgencia-title, .print-section h2, .selo-garantia-section h3 {
+    font-size: 1.6rem;
+  }
+  .origem-text, .urgencia-text, .selo-garantia-section p, .print-section p, .mini-anchora {
+    font-size: 1rem;
+  }
+}
+
   
   /* Responsividade */
   @media (max-width: 768px) {
