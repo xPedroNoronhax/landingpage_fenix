@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/mapadavirada",
+      "destination": "/mapamental-saidaatendimento.html"
+    }
+  ]
+}
