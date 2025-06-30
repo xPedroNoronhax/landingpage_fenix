@@ -1,0 +1,119 @@
+/* BASE */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+}
+
+/* CONTAINER PRINCIPAL */
+.hero-section {
+  min-height: 100vh;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  box-sizing: border-box;
+}
+
+.form-mapa-container {
+  background-color: #1C1C1C;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 87, 34, 0.3);
+  max-width: 500px;
+  width: 100%;
+}
+
+/* TÍTULO E SUBTÍTULO */
+.form-mapa-container h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #FF5722;
+}
+
+.form-mapa-container p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  color: #fff;
+}
+
+/* INPUTS */
+.form-mapa-container input[type="text"],
+.form-mapa-container input[type="email"],
+.form-mapa-container input[type="tel"] {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #2a2a2a;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.form-mapa-container input::placeholder {
+  color: #bbb;
+}
+
+/* BOTÃO */
+.form-mapa-container button {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: #FF5722;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.form-mapa-container button:hover {
+  background-color: #e64a19;
+  transform: scale(1.03);
+}
+
+/* MENSAGEM */
+#mensagem {
+  font-size: 1rem;
+  margin-top: 20px;
+  color: #FFAB91;
+}
+
+/* === MOBILE FIRST: RESPONSIVIDADE === */
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 40px 15px;
+  }
+
+  .form-mapa-container {
+    padding: 30px 20px;
+  }
+
+  .form-mapa-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .form-mapa-container p {
+    font-size: 1rem;
+  }
+
+  .form-mapa-container input,
+  .form-mapa-container button {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  #mensagem {
+    font-size: 0.95rem;
+  }
+}

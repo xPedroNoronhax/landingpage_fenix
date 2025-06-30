@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Receba o Mapa Mental em PDF</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/mapamental.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="hero-section">
+      <div class="form-mapa-container">
+        <h1>🎯 Mapa da Virada Profissional</h1>
+        <p>
+          Preencha os campos abaixo e receba automaticamente o seu mapa mental
+          em PDF no e-mail!
+        </p>
+
+        <form id="leadForm">
+          <input
+            type="text"
+            name="nome"
+            placeholder="Seu nome completo"
+            required
+          />
+          <input type="email" name="email" placeholder="Seu e-mail" required />
+          <input
+            type="tel"
+            name="telefone"
+            placeholder="Seu WhatsApp (opcional)"
+          />
+          <button type="submit">Quero Receber o Mapa</button>
+        </form>
+
+        <div id="mensagem"></div>
+      </div>
+    </section>
+
+    <script>
+      document
+        .getElementById("leadForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const form = e.target;
+          const data = {
+            nome: form.nome.value,
+            email: form.email.value,
+            telefone: form.telefone.value,
+          };
+
+          const formData = new FormData();
+          formData.append("nome", data.nome);
+          formData.append("email", data.email);
+          formData.append("telefone", data.telefone);
+
+          const res = await fetch(
+            "https://script.google.com/macros/s/AKfycbz4X5Z7qM-BPmbl0RWrT6zIAxlOOR545WHtCPCieQBlKQZhihcZyxmPXFD2qDeGB2Pb/exec",
+            {
+              method: "POST",
+              body: formData,
+            }
+          );
+
+          const msg = document.getElementById("mensagem");
+          if (res.ok) {
+            msg.innerHTML =
+              "✅ Mapa enviado para o seu e-mail. Verifique sua caixa de entrada ou spam.";
+            form.reset();
+          } else {
+            msg.innerHTML = "❌ Algo deu errado. Tente novamente mais tarde.";
+          }
+        });
+    </script>
+  </body>
+</html>
