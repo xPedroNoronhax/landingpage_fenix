@@ -732,3 +732,56 @@ html, body {
     animation: pulseAttention 1.5s infinite;
   }
   
+
+  .btn-cta-chamativo {
+  background: linear-gradient(45deg, #FF5722, #FF8A50);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 16px 40px;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(255, 87, 34, 0.6);
+  transition: all 0.3s ease;
+  display: inline-block;
+  animation: pulseHighlight 2s infinite;
+}
+
+.btn-cta-chamativo:hover {
+  background: linear-gradient(45deg, #e64a19, #ff7043);
+  transform: scale(1.05);
+  text-decoration: none;
+  color: #fff;
+}
+
+@keyframes pulseHighlight {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 87, 34, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 138, 80, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 87, 34, 0.6);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .btn-cta-chamativo {
+    font-size: 1rem;
+    padding: 14px 30px;
+    width: 90%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-cta-chamativo {
+    font-size: 0.95rem;
+    padding: 12px 20px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+}
