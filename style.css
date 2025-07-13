@@ -745,7 +745,19 @@ html, body {
   transition: all 0.3s ease;
   display: inline-block;
   animation: pulseHighlight 2s infinite;
+
+
 }
+
+.urgencia-banner {
+  background: #FF5722;
+  color: white;
+  padding: 8px 15px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
 
 .btn-cta-chamativo:hover {
   background: linear-gradient(45deg, #e64a19, #ff7043);
@@ -753,6 +765,45 @@ html, body {
   text-decoration: none;
   color: #fff;
 }
+
+.botao-fixo-mobile {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #FF5722;
+  text-align: center;
+  padding: 12px 0;
+  z-index: 999;
+  display: none;
+}
+
+.botao-fixo-mobile a {
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+
+.modal-content {
+  background-color: #1C1C1C;
+  color: #fff;
+}
+.modal-header {
+  border-bottom: none;
+}
+.btn-danger {
+  background-color: #FF5722;
+  border: none;
+}
+.btn-danger:hover {
+  background-color: #e64a19;
+}
+.custom-close {
+  filter: invert(41%) sepia(96%) saturate(678%) hue-rotate(352deg) brightness(101%) contrast(101%);
+}
+
+
 
 @keyframes pulseHighlight {
   0% {
@@ -774,6 +825,10 @@ html, body {
     width: 90%;
     text-align: center;
   }
+
+    .botao-fixo-mobile {
+    display: block;
+  } 
 }
 
 @media (max-width: 480px) {
