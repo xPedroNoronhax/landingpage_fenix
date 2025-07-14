@@ -693,7 +693,6 @@
 
   setInterval(updateVisitorNumber, 20000);
 </script>
-
 <script>
   const salesMessages = [
     "🔥 Alguém acabou de comprar!",
@@ -709,32 +708,36 @@
 
     setTimeout(() => {
       el.style.opacity = 1;
+
+      // depois de 4 segundos some
+      setTimeout(() => {
+        el.style.opacity = 0;
+
+        setTimeout(() => {
+          el.style.display = "none";
+        }, 500);
+
+      }, 4000);
+
     }, 50);
   }
 
   function updateSalesMessage() {
     const el = document.getElementById('sales-counter');
-    el.style.opacity = 0;
+    const msg = salesMessages[Math.floor(Math.random() * salesMessages.length)];
+    el.textContent = msg;
 
-    setTimeout(() => {
-      const msg = salesMessages[Math.floor(Math.random() * salesMessages.length)];
-      el.textContent = msg;
-      el.style.opacity = 1;
-    }, 500);
+    showSalesMessage();
   }
 
   setTimeout(() => {
-    // Mostra a primeira vez com fade-in
-    const el = document.getElementById('sales-counter');
-    el.textContent = salesMessages[Math.floor(Math.random() * salesMessages.length)];
-    showSalesMessage();
+    updateSalesMessage();
 
     // Depois troca a cada 3min com fade
-    setInterval(updateSalesMessage, 180000);
+    setInterval(updateSalesMessage, 140000);
 
   }, 7000);
 </script>
-
 
   </body>
 </html>
