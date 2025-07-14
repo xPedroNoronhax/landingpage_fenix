@@ -803,6 +803,55 @@ html, body {
   filter: invert(41%) sepia(96%) saturate(678%) hue-rotate(352deg) brightness(101%) contrast(101%);
 }
 
+#visitors-counter {
+  position: fixed;
+  bottom: 60px; /* era 20px, agora está 20px mais alto */
+  right: 20px;
+  background-color: #1c1c1c;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  z-index: 9999;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  #visitors-counter {
+    font-size: 12px;
+    padding: 6px 10px;
+    bottom: 50px; /* mobile também sobe proporcionalmente */
+    right: 10px;
+  }
+}
+
+#sales-counter {
+  position: fixed;
+  bottom: 100px; /* um pouco mais acima do visitors-counter */
+  right: 20px;
+  background-color: #f7931e;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  z-index: 9999;
+  opacity: 0.95;
+  transition: opacity 0.5s ease;
+
+}
+
+@media (max-width: 768px) {
+  #sales-counter {
+    font-size: 12px;
+    padding: 6px 10px;
+    bottom: 80px;
+    right: 10px;
+  }
+}
+
+
 
 
 @keyframes pulseHighlight {

@@ -59,7 +59,7 @@
   <body>
     <!-- HERO SECTION -->
     <div class="urgencia-banner">
-      Promoção Especial: de R$ 30 por R$ 19 • Entrega Imediata
+      ⏳ Promoção Especial: R$ 19 enquanto durar o lote!
     </div>
     <section
       class="hero-section d-flex align-items-center justify-content-center text-center"
@@ -643,6 +643,12 @@
         </div>
       </div>
     </div>
+    <div id="visitors-counter">
+  👀 <span id="visitor-number">0</span> pessoas estão vendo esta página agora!
+</div>
+<div id="sales-counter" style="display: none; opacity: 0;"></div>
+
+
 
     <!-- Script para abrir modal depois de 12 segundos -->
     <script>
@@ -673,5 +679,62 @@
         });
       });
     </script>
+    <script>
+  function getRandomVisitors() {
+    return Math.floor(Math.random() * (135 - 34 + 1)) + 34;
+  }
+
+  function updateVisitorNumber() {
+    const number = getRandomVisitors();
+    document.getElementById('visitor-number').textContent = number;
+  }
+
+  updateVisitorNumber();
+
+  setInterval(updateVisitorNumber, 20000);
+</script>
+
+<script>
+  const salesMessages = [
+    "🔥 Alguém acabou de comprar!",
+    "💼 1 venda realizada há poucos minutos",
+    "🚀 Nova venda registrada agora mesmo!",
+    "👏 Mais uma pessoa garantiu sua virada!"
+  ];
+
+  function showSalesMessage() {
+    const el = document.getElementById('sales-counter');
+    el.style.display = "block";
+    el.style.opacity = 0;
+
+    setTimeout(() => {
+      el.style.opacity = 1;
+    }, 50);
+  }
+
+  function updateSalesMessage() {
+    const el = document.getElementById('sales-counter');
+    el.style.opacity = 0;
+
+    setTimeout(() => {
+      const msg = salesMessages[Math.floor(Math.random() * salesMessages.length)];
+      el.textContent = msg;
+      el.style.opacity = 1;
+    }, 500);
+  }
+
+  setTimeout(() => {
+    // Mostra a primeira vez com fade-in
+    const el = document.getElementById('sales-counter');
+    el.textContent = salesMessages[Math.floor(Math.random() * salesMessages.length)];
+    showSalesMessage();
+
+    // Depois troca a cada 3min com fade
+    setInterval(updateSalesMessage, 180000);
+
+  }, 7000);
+</script>
+
+
   </body>
 </html>
