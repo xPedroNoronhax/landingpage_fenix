@@ -759,6 +759,32 @@ html, body {
   100% { box-shadow: 0 0 0 0 rgba(255, 87, 34, 0); }
 }
 
+@keyframes pulseUrgencia {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.urgencia-banner {
+  text-align: center;
+  padding: 8px 15px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  background: #FF5722;
+  color: white;
+}
+
+#contador-urgencia {
+  margin-top: 5px;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  animation: pulseUrgencia 1.8s infinite;
+}
+
+
 .urgencia-banner {
   background: #FF5722;
   color: white;
@@ -777,21 +803,26 @@ html, body {
 }
 
 .botao-fixo-mobile {
-  position: fixed;
+ position: fixed;
   bottom: 0;
+  left: 0;
+  right: 0;
   width: 100%;
-  background: #FF5722;
+  background: linear-gradient(45deg, #FF5722, #FF8A50);
   text-align: center;
-  padding: 12px 0;
-  z-index: 999;
+  padding: 14px 0;
+  z-index: 9999;
   display: none;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .botao-fixo-mobile a {
-  color: white;
+ color: #fff;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.1rem;
   text-decoration: none;
+  display: block;
+  width: 100%;
 }
 
 

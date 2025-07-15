@@ -58,18 +58,25 @@
   </head>
   <body>
     <!-- HERO SECTION -->
-    <div class="urgencia-banner">
-      ⏳ Promoção Especial: R$ 19 enquanto durar o lote!
-    </div>
+  <div class="urgencia-banner">
+  <p class="urgencia-texto">
+    ⏳ Promoção Especial: R$ 19 enquanto durar o lote!
+  </p>
+  <p id="contador-urgencia">
+    Oferta expira em: <span id="timer">00:59:59</span>
+  </p>
+</div>
+  
+
     <section
       class="hero-section d-flex align-items-center justify-content-center text-center"
     >
       <div class="container">
         <h1 class="hero-title">
-   Saia do Atendimento e Viva Melhor por Apenas R$ 19
+  Prove que Você Merece Mais: Saia do Atendimento Hoje
 </h1>
 <p class="hero-subtitle">
-  Mude sua história profissional com mais qualidade de vida e melhores salários — sem fórmulas mágicas e sem gastar uma fortuna.
+  Por menos que uma pizza, um método realista pra reconstruir sua carreira com orgulho e propósito — sem fórmulas mágicas.
 </p>
 
         <a
@@ -78,8 +85,11 @@
           rel="noopener noreferrer"
           class="btn-cta-chamativo pulse"
         >
-        Quero sair do atendimento por apenas R$ 19
+        👉 Sim! Quero minha nova carreira agora por R$ 19
         </a>
+        <p style="margin-top: 8px; font-size: 0.9rem; color: #FFAB91;">
+  📦 Entrega imediata · 🔒 Garantia de 7 dias · Sem risco
+</p>
 
         <!-- IMAGEM DA CAPA DO EBOOK -->
         <div class="hero-image">
@@ -141,7 +151,7 @@
     </section>
     <div class="text-center mt-4 mb-5">
   <a href="https://pay.hotmart.com/E100319484V?off=6xb043la" target="_blank" class="btn-cta-chamativo">
-    Quero minha nova carreira por apenas R$ 19,00
+    👉 Sim! Quero minha nova carreira agora por R$ 19
   </a>
 </div>
 
@@ -736,6 +746,46 @@
 
   }, 7000);
 </script>
+
+<script>
+  const timerEl = document.getElementById('timer');
+
+  function startCountdown() {
+    let deadline = localStorage.getItem('countdownDeadline');
+
+    // Se não existe ou já passou, cria novo deadline para 1h a partir de agora
+    if (!deadline || new Date(deadline) < new Date()) {
+      const now = new Date();
+      now.setHours(now.getHours() + 1);
+      deadline = now.toISOString();
+      localStorage.setItem('countdownDeadline', deadline);
+    }
+
+    function updateTimer() {
+      const now = new Date();
+      const remaining = new Date(deadline) - now;
+
+      if (remaining <= 0) {
+        timerEl.textContent = "00:00:00";
+        clearInterval(interval);
+        return;
+      }
+
+      const hours = Math.floor(remaining / (1000 * 60 * 60));
+      const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+
+      timerEl.textContent = 
+        `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+    }
+
+    updateTimer(); // atualiza já ao carregar
+    const interval = setInterval(updateTimer, 1000);
+  }
+
+  startCountdown();
+</script>
+
 
   </body>
 </html>
