@@ -166,8 +166,9 @@
             pra entrevistas na área de marketing digital. Pela primeira vez,
             sinto que tenho um plano real.”
           </p>
-           <img src="img/avatar1.png" alt="Juliana" class="testimonial-avatar">
+          
           <p class="testimonial-author">— Juliana Moura, 33 anos</p>
+          <img src="img/avatar1.png" alt="Juliana" class="testimonial-avatar">
         </div>
       </div>
     </section>
@@ -700,40 +701,42 @@
 <script>
   const timerEl = document.getElementById('timer');
 
-  function startCountdown() {
-    let deadline = localStorage.getItem('countdownDeadline');
+function startCountdown() {
+  let deadline = localStorage.getItem('countdownDeadline');
 
-    // Se não existe ou já passou, cria novo deadline para 1h a partir de agora
-    if (!deadline || new Date(deadline) < new Date()) {
-      const now = new Date();
-      now.setHours(now.getHours() + 1);
-      deadline = now.toISOString();
-      localStorage.setItem('countdownDeadline', deadline);
-    }
-
-    function updateTimer() {
-      const now = new Date();
-      const remaining = new Date(deadline) - now;
-
-      if (remaining <= 0) {
-        timerEl.textContent = "00:00:00";
-        clearInterval(interval);
-        return;
-      }
-
-      const hours = Math.floor(remaining / (1000 * 60 * 60));
-      const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
-
-      timerEl.textContent = 
-        `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
-    }
-
-    updateTimer(); // atualiza já ao carregar
-    const interval = setInterval(updateTimer, 1000);
+  // Se não existe ou já passou, cria novo deadline para 10min a partir de agora
+  if (!deadline || new Date(deadline) < new Date()) {
+    const now = new Date();
+    now.setMinutes(now.getMinutes() + 10); // antes era 1 hora, agora 10min
+    deadline = now.toISOString();
+    localStorage.setItem('countdownDeadline', deadline);
   }
 
-  startCountdown();
+  function updateTimer() {
+    const now = new Date();
+    const remaining = new Date(deadline) - now;
+
+    if (remaining <= 0) {
+      timerEl.textContent = "00:00:00";
+      clearInterval(interval);
+      return;
+    }
+
+    const hours = Math.floor(remaining / (1000 * 60 * 60));
+    const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+
+    timerEl.textContent =
+      `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  }
+
+  updateTimer(); // atualiza já ao carregar
+  const interval = setInterval(updateTimer, 1000);
+}
+
+startCountdown();
+
+
 </script>
 
 
