@@ -742,7 +742,7 @@ html, body {
   
 
   .btn-cta-chamativo {
-  background: linear-gradient(45deg, #FF5722, #FF8A50);
+  background: linear-gradient(45deg, #FFD700 , #FF8A50);
   color: #fff;
   font-size: 1.2rem;
   font-weight: bold;
@@ -816,7 +816,7 @@ html, body {
   left: 0;
   right: 0;
   width: 100%;
-  background: linear-gradient(45deg, #FF5722, #FF8A50);
+  background: linear-gradient(45deg, #FFD700, #FF8A50);
   text-align: center;
   padding: 14px 0;
   z-index: 9999;
